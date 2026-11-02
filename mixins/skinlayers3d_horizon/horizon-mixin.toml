@@ -1,0 +1,23 @@
+[mod]
+id = "skinlayers3d_horizon"
+version = "0.1.0"
+
+[compatibility]
+horizon_revision = "c9d474dd9116e84c243f8992d75c11314df56f06"
+
+[[injection]]
+id = "pixel_skin_models"
+target = "horizon_client::mobs::EntityModelDocument::model"
+kind = "HEAD"
+cancellable = true
+helper = "load.rs"
+bindings = [
+  { name = "document", ty = "&EntityModelDocument", value = "self" },
+  { name = "key", ty = "&str", value = "key" },
+]
+
+[[module]]
+id = "pixel_mesh"
+file = "crates/horizon-client/src/mobs.rs"
+name = "skinlayers3d_horizon"
+source = "model.rs"
